@@ -1,1 +1,123 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>QR — Matheus ♡ Beatriz</title><style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#fff8fa;font-family:Arial,sans-serif;color:#7c3049}.card{background:#fff;padding:30px;border-radius:28px;box-shadow:0 20px 60px #7c304922;text-align:center;max-width:360px}.card h1{margin:0 0 8px}.card p{line-height:1.5;color:#815c69}.card img{width:260px;max-width:100%;border-radius:18px}.heart{font-size:36px;color:#c86b87}</style></head><body><div class="card"><div class="heart">♡</div><h1>Matheus + Beatriz</h1><p>Escaneia e abre um cantinho feito só pra você.</p><img alt="QR Code para o site" src="https://api.qrserver.com/v1/create-qr-code/?size=700x700&data=https%3A%2F%2Fh1muradev.github.io%2Fmatheus-e-beatriz%2F"><p>https://h1muradev.github.io/matheus-e-beatriz/</p></div></body></html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#24151c">
+  <title>QR — Matheus ♡ Beatriz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Great+Vibes&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      margin: 0;
+      padding: 24px;
+      color: #fff8f5;
+      font-family: "DM Sans", sans-serif;
+      background:
+        radial-gradient(circle at 50% 10%, rgba(218, 127, 153, 0.2), transparent 28rem),
+        linear-gradient(145deg, #211219, #321c26 52%, #1e1117);
+    }
+    .card {
+      position: relative;
+      width: min(430px, 100%);
+      padding: 42px clamp(24px, 7vw, 46px);
+      overflow: hidden;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.055);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 2px 48px 2px 48px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.28);
+      backdrop-filter: blur(10px);
+    }
+    .card::after {
+      content: "B";
+      position: absolute;
+      right: -20px;
+      bottom: -42px;
+      color: rgba(255, 255, 255, 0.035);
+      font: 11rem/1 "Playfair Display", serif;
+      pointer-events: none;
+    }
+    .heart {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 18px;
+      color: #efb5c4;
+      font: 2rem "Playfair Display", serif;
+      border: 1px solid rgba(239, 181, 196, 0.45);
+      border-radius: 50%;
+    }
+    .eyebrow {
+      margin: 0 0 9px;
+      color: #dca0b1;
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font: 500 clamp(2.1rem, 9vw, 3.2rem)/1.05 "Playfair Display", serif;
+    }
+    .names {
+      display: block;
+      margin-top: 4px;
+      color: #e8a7b9;
+      font: 2.2rem "Great Vibes", cursive;
+    }
+    .intro {
+      margin: 15px auto 22px;
+      color: rgba(255, 248, 245, 0.65);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    .qr-shell {
+      position: relative;
+      z-index: 1;
+      width: min(270px, 100%);
+      margin: 0 auto;
+      padding: 12px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.24);
+    }
+    .qr-shell img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 11px;
+    }
+    .hint {
+      position: relative;
+      z-index: 1;
+      margin: 20px 0 0;
+      color: rgba(255, 248, 245, 0.48);
+      font-size: 0.72rem;
+    }
+    a {
+      color: #f1b9c8;
+      text-underline-offset: 3px;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="heart" aria-hidden="true">♡</div>
+    <p class="eyebrow">uma surpresa feita para você</p>
+    <h1>Escaneie e abra</h1>
+    <span class="names">Matheus + Beatriz</span>
+    <p class="intro">Um cantinho feito com carinho, algumas fotos e tudo aquilo que eu ainda não sabia colocar em palavras.</p>
+    <div class="qr-shell">
+      <img alt="QR Code para abrir o site de Matheus e Beatriz" src="https://api.qrserver.com/v1/create-qr-code/?size=700x700&data=https%3A%2F%2Fh1muradev.github.io%2Fmatheus-e-beatriz%2F">
+    </div>
+    <p class="hint">ou abra <a href="https://h1muradev.github.io/matheus-e-beatriz/">h1muradev.github.io/matheus-e-beatriz</a></p>
+  </main>
+</body>
+</html>
