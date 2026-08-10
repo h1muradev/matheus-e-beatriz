@@ -18,8 +18,8 @@
         <p class="eyebrow">desde 07.08.2026 • onde tudo começou</p>
         <h1>Matheus <span>♡</span> Beatriz</h1>
         <p class="hero-copy">A gente se conheceu jogando Roblox. Era para ser só brincadeira, risada e mais uma pessoa que apareceu por acaso. Três dias depois, eu estou aqui fazendo um site para você. Acho que isso já diz bastante.</p>
-        <button class="primary" id="openExperience">abrir meu coração</button>
-        <p class="tiny">coloca nossa música e fica comigo por alguns minutos, Maria Pirulita ♡</p>
+        <button class="primary" id="openExperience">entrar no meu coração ♡</button>
+        <p class="tiny">quando você entrar, nossa música começa junto com a surpresa, Maria Pirulita ♡</p>
       </div>
     </section>
 
@@ -34,25 +34,40 @@
         </div>
       </section>
 
-      <div class="spotify-card glass">
-        <div class="spotify-head">
+      <div class="music-card glass" id="musicCard">
+        <div class="music-head">
           <div>
-            <span class="spotify-label">uma música para a minha Maria Pirulita</span>
-            <h2>Tocando no Spotify ♫</h2>
+            <span class="music-label">uma música para a minha Maria Pirulita</span>
+            <h2>Amor ♫</h2>
+            <p>nossa trilha enquanto você lê isso</p>
           </div>
-          <div class="pulse-dot"></div>
+          <div class="playing-indicator" aria-hidden="true"><span></span><span></span><span></span></div>
         </div>
-        <iframe
-          id="spotifyPlayer"
-          style="border-radius:18px"
-          src="https://open.spotify.com/embed/track/6r6IPuFvUX72kQGc9b46rk?utm_source=generator&theme=0"
-          width="100%"
-          height="152"
-          frameborder="0"
-          allowfullscreen=""
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"></iframe>
-        <p class="spotify-note">se não começar sozinho, aperta o play. Eu queria que essa música tocasse enquanto você lê tudo isso ♡</p>
+
+        <div class="music-player-shell" id="musicPlayerShell">
+          <div class="music-placeholder" id="musicPlaceholder">
+            <div class="disc">♡</div>
+            <div>
+              <strong id="musicStatus">a música vai começar quando você entrar</strong>
+              <small>se o celular bloquear o início automático, o player aparece aqui para você tocar uma vez.</small>
+            </div>
+          </div>
+          <iframe
+            id="youtubeMusicFrame"
+            class="youtube-music-frame"
+            title="Nossa música"
+            width="100%"
+            height="190"
+            frameborder="0"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+
+        <div class="music-actions">
+          <button class="music-button" id="musicFallback" type="button">tocar nossa música ♫</button>
+          <a class="spotify-link" href="https://open.spotify.com/track/6r6IPuFvUX72kQGc9b46rk" target="_blank" rel="noopener">ver no Spotify</a>
+        </div>
+        <p class="music-note">O áudio do site vem do vídeo completo que você me mandou; o Spotify fica aqui só como atalho para a música. ♡</p>
       </div>
 
       <section class="section-block photos-block">
@@ -63,10 +78,9 @@
           </div>
         </div>
         <div class="photo-strip">
-          <figure class="polaroid tilt-left"><img src="bia-melody.jpg" alt="Beatriz com My Melody" /><figcaption>minha Maria Pirulita ♡</figcaption></figure>
-          <figure class="polaroid tilt-right"><img src="bia-oculos.jpg" alt="Beatriz de óculos" /><figcaption>até de óculos consegue acabar comigo</figcaption></figure>
-          <figure class="polaroid tilt-left"><img src="beatriz.jpg" alt="Beatriz" /><figcaption>o olhar que me ganhou sem pedir licença</figcaption></figure>
-          <figure class="polaroid tilt-right"><img src="beatriz-2.jpg" alt="Beatriz" /><figcaption>bonita, divertida e impossível de ignorar</figcaption></figure>
+          <figure class="polaroid tilt-left"><img src="bia-melody.jpg" alt="Beatriz com My Melody" loading="lazy" decoding="async" /><figcaption>minha Maria Pirulita ♡</figcaption></figure>
+          <figure class="polaroid tilt-right"><img src="bia-oculos.jpg" alt="Beatriz de óculos" loading="lazy" decoding="async" /><figcaption>até de óculos consegue acabar comigo</figcaption></figure>
+          <figure class="polaroid tilt-left"><img src="beatriz.jpg" alt="Beatriz" loading="lazy" decoding="async" /><figcaption>o olhar que me ganhou sem pedir licença</figcaption></figure>
         </div>
       </section>
 
@@ -83,7 +97,7 @@
 
       <section class="section-block culprit-block">
         <div class="split-card glass">
-          <figure class="portrait-frame"><img src="matheus.jpg" alt="Matheus" /></figure>
+          <figure class="portrait-frame"><img src="matheus.jpg" alt="Matheus" loading="lazy" decoding="async" /></figure>
           <div class="split-copy">
             <p class="eyebrow">o culpado por esse site</p>
             <h2>Talvez eu seja só um louco apaixonado.</h2>
@@ -98,14 +112,14 @@
         <h2>Mas olha onde a minha cabeça já foi parar.</h2>
         <div class="future-gallery">
           <figure class="future-photo glass future-left">
-            <img src="futuro-castelo.jpg" alt="Uma imaginação de Matheus e Beatriz juntos em um passeio" />
+            <img src="futuro-castelo.jpg" alt="Uma imaginação de Matheus e Beatriz juntos em um passeio" loading="lazy" decoding="async" />
             <figcaption>
               <strong>uma viagem qualquer...</strong>
               <span>nós dois fazendo coisas bobas, rindo de tudo e criando memórias que hoje ainda existem só na minha cabeça.</span>
             </figcaption>
           </figure>
           <figure class="future-photo glass future-right">
-            <img src="futuro-casa.jpg" alt="Uma imaginação carinhosa de uma família no futuro" />
+            <img src="futuro-casa.jpg" alt="Uma imaginação carinhosa de uma família no futuro" loading="lazy" decoding="async" />
             <figcaption>
               <strong>e eu admito que viajei um pouco mais ♡</strong>
               <span>não é uma promessa nem uma pressa. É só uma imagem fofinha de até onde esse louco apaixonado conseguiu imaginar.</span>
