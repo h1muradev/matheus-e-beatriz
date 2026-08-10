@@ -1,170 +1,314 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#f7e9ee" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#24151c">
+  <meta name="description" content="Um cantinho feito por Matheus para Beatriz.">
   <title>Matheus ♡ Beatriz</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Great+Vibes&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="hearts" aria-hidden="true"></div>
+  <div class="page-glow page-glow-one" aria-hidden="true"></div>
+  <div class="page-glow page-glow-two" aria-hidden="true"></div>
+  <div class="floating-hearts" aria-hidden="true"></div>
+  <div class="love-progress" id="loveProgress" aria-hidden="true"></div>
+
+  <div class="heart-transition" id="heartTransition" aria-hidden="true">
+    <canvas id="heartTransitionCanvas"></canvas>
+    <div class="heart-transition-copy">
+      <span class="heart-transition-core">♥</span>
+      <p>abrindo meu coração para você...</p>
+    </div>
+  </div>
+
   <main>
-    <section class="hero" id="inicio">
-      <div class="hero-card glass">
-        <p class="eyebrow">desde 07.08.2026 • onde tudo começou</p>
-        <h1>Matheus <span>♡</span> Beatriz</h1>
-        <p class="hero-copy">A gente se conheceu jogando Roblox. Era para ser só brincadeira, risada e mais uma pessoa que apareceu por acaso. Três dias depois, eu estou aqui fazendo um site para você. Acho que isso já diz bastante.</p>
-        <button class="primary" id="openExperience">entrar no meu coração ♡</button>
-        <p class="tiny">quando você entrar, nossa música começa junto com a surpresa, Maria Pirulita ♡</p>
+    <section class="entry" id="inicio" aria-labelledby="entryTitle">
+      <div class="entry-frame">
+        <div class="entry-mark" aria-hidden="true">
+          <span>♥</span>
+          <i></i>
+          <i></i>
+        </div>
+        <p class="kicker">uma surpresa para Beatriz</p>
+        <h1 id="entryTitle">
+          <span>Foi rápido.</span>
+          <span>Foi inesperado.</span>
+          <span><em>E foi você.</em></span>
+        </h1>
+        <p class="entry-copy">
+          A gente se encontrou por acaso, jogando Roblox. Era para ser só uma brincadeira —
+          mas, em tão pouco tempo, você virou a pessoa que eu mais queria por perto.
+        </p>
+        <button class="enter-button" id="openExperience" type="button" disabled>
+          <span class="enter-button-label">preparando a surpresa...</span>
+          <span class="enter-button-heart" aria-hidden="true">♡</span>
+        </button>
+        <p class="entry-hint">toque para abrir e ouvir a nossa música</p>
+        <div class="entry-footer" role="group" aria-label="Matheus e Beatriz, desde 7 de agosto de 2026">
+          <span>Matheus + Beatriz</span>
+          <i aria-hidden="true"></i>
+          <span>07.08.2026</span>
+        </div>
       </div>
     </section>
 
-    <section class="hidden-section" id="experience">
-      <section class="section-block intro-block">
-        <p class="eyebrow">07 de agosto de 2026</p>
-        <h2>Começou no Roblox. E, sem eu perceber, deixou de ser só brincadeira.</h2>
-        <div class="declaration-grid">
-          <article class="note-card glass"><span>01</span><p>No começo eram só brincadeiras, risadas e aquela conversa leve de quem acabou de se conhecer.</p></article>
-          <article class="note-card glass"><span>02</span><p>Depois eu comecei a querer mandar mais mensagem, ficar mais tempo com você e procurar qualquer desculpa para continuar por perto.</p></article>
-          <article class="note-card glass"><span>03</span><p>E foi aí que eu percebi uma coisa meio engraçada: outras pessoas começaram a perder o sal. Não eram você.</p></article>
+    <div class="story" id="story" inert>
+      <section class="chapter opening reveal-on-scroll" aria-labelledby="openingTitle">
+        <div class="chapter-number" aria-hidden="true">01</div>
+        <div class="opening-copy">
+          <p class="kicker">de uma partida no Roblox para cá</p>
+          <h2 id="openingTitle">Eu não estava procurando por isso.<br><em>Mas encontrei você.</em></h2>
+          <p>
+            Primeiro vieram as brincadeiras. Depois, a vontade de continuar conversando.
+            Quando percebi, eu já esperava suas mensagens, procurava desculpas para ficar mais
+            um pouco e achava todo mundo sem graça — porque ninguém era você.
+          </p>
+        </div>
+        <blockquote>
+          <span aria-hidden="true">“</span>
+          Em poucos dias, você conseguiu ocupar um espaço que eu nem sabia que estava vazio.
+        </blockquote>
+      </section>
+
+      <section class="chapter portrait-chapter reveal-on-scroll" aria-labelledby="portraitTitle">
+        <div class="portrait-layout">
+          <div class="portrait-stack" id="portraitGallery">
+            <figure class="portrait-card portrait-main photo-candidate is-pending" data-photo-card>
+              <img src="beatriz.jpg" alt="Beatriz olhando para a câmera" loading="lazy" decoding="async">
+              <figcaption>o olhar que me ganhou sem pedir licença</figcaption>
+            </figure>
+            <figure class="portrait-card portrait-melody photo-candidate is-pending" data-photo-card>
+              <img src="bia-melody.jpg" alt="Beatriz com um adesivo da My Melody" loading="lazy" decoding="async">
+              <figcaption>minha Maria Pirulita ♡</figcaption>
+            </figure>
+            <figure class="portrait-card portrait-mirror photo-candidate is-pending" data-photo-card>
+              <img src="beatriz-2.jpg" alt="Beatriz tirando uma foto diante do espelho" loading="lazy" decoding="async">
+              <figcaption>bonita sem precisar tentar</figcaption>
+            </figure>
+            <div class="portrait-decoration" aria-hidden="true">B</div>
+          </div>
+
+          <div class="portrait-copy">
+            <p class="kicker">a menina que apareceu do nada</p>
+            <h2 id="portraitTitle">Você tem um jeito que ficou em mim.</h2>
+            <p>
+              Eu gosto da sua personalidade, do seu jeito de falar, do seu sotaque do Pará e
+              da facilidade que você tem de me fazer rir. Você é divertida, bonita e tem um
+              coração que me deu vontade de conhecer com calma.
+            </p>
+            <ul class="small-notes" aria-label="Três coisas que eu sinto">
+              <li>eu espero suas mensagens</li>
+              <li>eu quero mais tempo com você</li>
+              <li>eu quero cuidar bem de você</li>
+            </ul>
+          </div>
         </div>
       </section>
 
-      <div class="music-card glass" id="musicCard">
-        <div class="music-head">
+      <section class="chapter moments-chapter reveal-on-scroll" aria-labelledby="momentsTitle">
+        <div class="chapter-heading moments-heading">
           <div>
-            <span class="music-label">uma música para a minha Maria Pirulita</span>
-            <h2>Amor ♫</h2>
-            <p>nossa trilha enquanto você lê isso</p>
+            <p class="kicker">dois pedacinhos de você</p>
+            <h2 id="momentsTitle">Tem coisas que uma foto não consegue guardar.</h2>
           </div>
-          <div class="playing-indicator" aria-hidden="true"><span></span><span></span><span></span></div>
+          <p class="chapter-side-copy">
+            Seu jeitinho, seu olhar e esses segundos que eu poderia repetir sem cansar.
+          </p>
         </div>
 
-        <div class="music-player-shell" id="musicPlayerShell">
-          <div class="music-placeholder" id="musicPlaceholder">
-            <div class="disc">♡</div>
-            <div>
-              <strong id="musicStatus">a música vai começar quando você entrar</strong>
-              <small>se o celular bloquear o início automático, o player aparece aqui para você tocar uma vez.</small>
+        <div class="love-videos" aria-label="Dois vídeos especiais da Beatriz">
+          <article class="love-video-card love-video-left" data-love-video-card>
+            <div class="love-video-frame">
+              <video
+                data-love-video
+                data-has-audio="true"
+                src="media/bia-de-pertinho.mp4"
+                poster="media/bia-de-pertinho-poster.jpg"
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                aria-label="Vídeo da Beatriz de óculos olhando para a câmera"
+              ></video>
+              <div class="video-vignette" aria-hidden="true"></div>
+              <span class="video-number" aria-hidden="true">01</span>
+              <button class="video-play" type="button" data-video-play aria-label="Pausar este vídeo">
+                <span aria-hidden="true">Ⅱ</span>
+              </button>
+              <button class="video-sound" type="button" data-video-sound aria-pressed="false">
+                <span aria-hidden="true">♫</span>
+                <span data-video-sound-label>ouvir este momento</span>
+              </button>
             </div>
-          </div>
-          <iframe
-            id="youtubeMusicFrame"
-            class="youtube-music-frame"
-            title="Nossa música"
-            width="100%"
-            height="190"
-            frameborder="0"
-            allow="autoplay; encrypted-media; picture-in-picture"
-            allowfullscreen></iframe>
+            <div class="love-video-copy">
+              <span>um detalhe que eu guardei</span>
+              <h3>Meu ponto fraco, de pertinho.</h3>
+              <p>Eu poderia ficar horas vendo esse seu jeitinho e ainda achar pouco.</p>
+            </div>
+          </article>
+
+          <article class="love-video-card love-video-right" data-love-video-card>
+            <div class="love-video-frame">
+              <video
+                data-love-video
+                src="media/bia-com-gatinho.mp4"
+                poster="media/bia-com-gatinho-poster.jpg"
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                aria-label="Vídeo da Beatriz de óculos com um gatinho"
+              ></video>
+              <div class="video-vignette" aria-hidden="true"></div>
+              <span class="video-number" aria-hidden="true">02</span>
+              <button class="video-play" type="button" data-video-play aria-label="Pausar este vídeo">
+                <span aria-hidden="true">Ⅱ</span>
+              </button>
+            </div>
+            <div class="love-video-copy">
+              <span>uma cena simples, mas muito você</span>
+              <h3>Você e um gatinho roubando a cena.</h3>
+              <p>É o tipo de momento pequeno que eu quero guardar como se fosse enorme.</p>
+            </div>
+          </article>
         </div>
 
-        <div class="music-actions">
-          <button class="music-button" id="musicFallback" type="button">tocar nossa música ♫</button>
-          <a class="spotify-link" href="https://open.spotify.com/track/6r6IPuFvUX72kQGc9b46rk" target="_blank" rel="noopener">ver no Spotify</a>
-        </div>
-        <p class="music-note">O áudio do site vem do vídeo completo que você me mandou; o Spotify fica aqui só como atalho para a música. ♡</p>
-      </div>
+        <p class="moments-note"><span aria-hidden="true">♡</span> aperte o som quando quiser ouvir o primeiro vídeo — a nossa música espera por você</p>
+      </section>
 
-      <section class="section-block photos-block">
-        <div class="section-title-row">
+      <section class="chapter timeline-chapter reveal-on-scroll" aria-labelledby="timelineTitle">
+        <div class="chapter-heading">
           <div>
-            <p class="eyebrow">a menina que apareceu do nada</p>
-            <h2>Você ficou bonita demais dentro dos meus pensamentos.</h2>
+            <p class="kicker">em tão pouco tempo</p>
+            <h2 id="timelineTitle">Foi acontecendo sem pedir licença.</h2>
+          </div>
+          <p class="chapter-side-copy">
+            Talvez seja cedo. Eu sei. Mas sentir não costuma pedir autorização para o calendário.
+          </p>
+        </div>
+
+        <ol class="feelings-list">
+          <li>
+            <span class="feeling-index">01</span>
+            <div><strong>Comecei a esperar suas mensagens.</strong><p>Meu celular ficou mais interessante quando era você aparecendo nele.</p></div>
+          </li>
+          <li>
+            <span class="feeling-index">02</span>
+            <div><strong>Comecei a querer mais tempo com você.</strong><p>Mais conversa, mais jogo, mais risada — qualquer coisa, desde que fosse com você.</p></div>
+          </li>
+          <li>
+            <span class="feeling-index">03</span>
+            <div><strong>Eu me apaixonei pelo seu jeito.</strong><p>Não foi só pela sua beleza. Foi pela pessoa que comecei a descobrir por trás dela.</p></div>
+          </li>
+          <li>
+            <span class="feeling-index">04</span>
+            <div><strong>E comecei a querer cuidar de você.</strong><p>Quero ser alguém que te faça bem, te trate com carinho e faça você se sentir querida de verdade.</p></div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="chapter confession-chapter reveal-on-scroll" aria-labelledby="confessionTitle">
+        <div class="confession-photo media-frame">
+          <img src="matheus.jpg" alt="Matheus sorrindo, o responsável por esta surpresa" loading="lazy" decoding="async">
+          <span aria-hidden="true">o culpado</span>
+        </div>
+        <div class="confession-copy">
+          <p class="kicker">confissão sincera</p>
+          <h2 id="confessionTitle">Talvez eu seja só um <em>louco apaixonado.</em></h2>
+          <p>
+            Um cara que te conheceu numa sexta-feira jogando Roblox e, poucos dias depois,
+            já estava tentando transformar em um site tudo o que você começou a causar nele.
+          </p>
+          <p>
+            Se isso for loucura, eu aceito. Pelo menos é uma loucura que tem nome: Beatriz.
+          </p>
+        </div>
+      </section>
+
+      <section class="chapter future-chapter reveal-on-scroll" aria-labelledby="futureTitle">
+        <div class="chapter-heading future-heading">
+          <div>
+            <p class="kicker">talvez eu tenha imaginado longe demais...</p>
+            <h2 id="futureTitle">Olha onde a minha cabeça foi parar.</h2>
           </div>
         </div>
-        <div class="photo-strip">
-          <figure class="polaroid tilt-left"><img src="bia-melody.jpg" alt="Beatriz com My Melody" loading="lazy" decoding="async" /><figcaption>minha Maria Pirulita ♡</figcaption></figure>
-          <figure class="polaroid tilt-right"><img src="bia-oculos.jpg" alt="Beatriz de óculos" loading="lazy" decoding="async" /><figcaption>até de óculos consegue acabar comigo</figcaption></figure>
-          <figure class="polaroid tilt-left"><img src="beatriz.jpg" alt="Beatriz" loading="lazy" decoding="async" /><figcaption>o olhar que me ganhou sem pedir licença</figcaption></figure>
-        </div>
-      </section>
-
-      <section class="section-block timeline-block">
-        <p class="eyebrow">em tão pouco tempo</p>
-        <h2>Foi acontecendo sem eu pedir licença para mim mesmo.</h2>
-        <div class="timeline">
-          <div class="timeline-item"><div class="dot"></div><div><strong>Comecei a esperar suas mensagens.</strong><p>Meu celular ficou mais interessante quando era você aparecendo nele.</p></div></div>
-          <div class="timeline-item"><div class="dot"></div><div><strong>Comecei a querer mais tempo com você.</strong><p>Mais conversa, mais jogo, mais risada, mais qualquer coisa — desde que fosse com você.</p></div></div>
-          <div class="timeline-item"><div class="dot"></div><div><strong>Eu me apaixonei pela sua personalidade.</strong><p>Você é divertida, bonita, uma pessoa muito boa e tem um jeito que me deixa genuinamente feliz de estar por perto.</p></div></div>
-          <div class="timeline-item"><div class="dot"></div><div><strong>E eu comecei a querer cuidar de você.</strong><p>Depois de ouvir um pouco da sua história, eu não quis ir embora. Eu quis ficar mais perto, te tratar bem, te dar carinho e fazer você se sentir segura comigo.</p></div></div>
-        </div>
-      </section>
-
-      <section class="section-block culprit-block">
-        <div class="split-card glass">
-          <figure class="portrait-frame"><img src="matheus.jpg" alt="Matheus" loading="lazy" decoding="async" /></figure>
-          <div class="split-copy">
-            <p class="eyebrow">o culpado por esse site</p>
-            <h2>Talvez eu seja só um louco apaixonado.</h2>
-            <p>Um cara que te conheceu numa sexta-feira jogando Roblox e, três dias depois, já estava pensando em como colocar em palavras tudo que você começou a causar nele.</p>
-            <p>Se isso for loucura, eu aceito. Pelo menos é uma loucura que tem nome: Beatriz.</p>
+        <div class="future-layout">
+          <div class="future-gallery" aria-label="Um futuro imaginado com carinho">
+            <figure class="future-image future-image-primary media-frame">
+              <img src="futuro-castelo.jpg" alt="Uma imaginação de Matheus, Beatriz e uma criança em uma viagem juntos" loading="lazy" decoding="async">
+              <figcaption>uma viagem maluca e nós três combinando até a fantasia ♡</figcaption>
+            </figure>
+            <figure class="future-image future-image-secondary media-frame">
+              <img src="futuro-casa.jpg" alt="Uma imaginação de Matheus, Beatriz e uma criança reunidos em casa" loading="lazy" decoding="async">
+              <figcaption>e, quem sabe, um cantinho com a nossa cara</figcaption>
+            </figure>
+          </div>
+          <div class="future-copy">
+            <span class="script-word" aria-hidden="true">calma...</span>
+            <p>
+              Eu sei que a gente acabou de se conhecer. Não quero pular etapas nem colocar
+              pressa na nossa história. Só achei bonito perceber que, em tão pouco tempo,
+              minha cabeça já conseguiu imaginar um monte de coisa boa com você.
+            </p>
+            <p class="future-emphasis">
+              Não é uma promessa apressada. É só a esperança de que isso seja o começo de algo bonito.
+            </p>
           </div>
         </div>
       </section>
 
-      <section class="section-block future-block">
-        <p class="eyebrow">talvez eu tenha imaginado um pouquinho longe demais...</p>
-        <h2>Mas olha onde a minha cabeça já foi parar.</h2>
-        <div class="future-gallery">
-          <figure class="future-photo glass future-left">
-            <img src="futuro-castelo.jpg" alt="Uma imaginação de Matheus e Beatriz juntos em um passeio" loading="lazy" decoding="async" />
-            <figcaption>
-              <strong>uma viagem qualquer...</strong>
-              <span>nós dois fazendo coisas bobas, rindo de tudo e criando memórias que hoje ainda existem só na minha cabeça.</span>
-            </figcaption>
-          </figure>
-          <figure class="future-photo glass future-right">
-            <img src="futuro-casa.jpg" alt="Uma imaginação carinhosa de uma família no futuro" loading="lazy" decoding="async" />
-            <figcaption>
-              <strong>e eu admito que viajei um pouco mais ♡</strong>
-              <span>não é uma promessa nem uma pressa. É só uma imagem fofinha de até onde esse louco apaixonado conseguiu imaginar.</span>
-            </figcaption>
-          </figure>
-        </div>
-        <p class="future-note">Calma, Maria Pirulita. Eu sei que a gente se conheceu agora. Não estou tentando pular etapas. Eu só achei engraçado perceber que, em tão pouco tempo, minha cabeça já conseguiu imaginar um monte de coisa bonita com você.</p>
-      </section>
-
-      <section class="section-block intro-block">
-        <p class="eyebrow">desde que a gente se encontrou</p>
-        <h2>Já se passaram <span id="daysTogether">alguns</span> dias. E olha o tamanho do estrago.</h2>
-        <div class="declaration-grid">
-          <article class="note-card glass"><span>♡</span><p>Talvez seja cedo. Eu sei. Mas sentir não costuma pedir autorização para o calendário.</p></article>
-          <article class="note-card glass"><span>♡</span><p>Eu não quero apressar a nossa história. Quero aproveitar cada pedacinho dela e continuar descobrindo você.</p></article>
-          <article class="note-card glass"><span>♡</span><p>Eu só sei que quero você comigo. Quero cuidar de você e ver até onde essa coincidência do Roblox pode levar a gente.</p></article>
-        </div>
-      </section>
-
-      <section class="section-block letter-block">
-        <div class="letter glass">
-          <p class="eyebrow">pra você, Maria Pirulita</p>
-          <h2>Talvez eu seja apenas um louco apaixonado por você.</h2>
-          <div class="letter-text">
-            <p>Bia, eu sei que tudo isso aconteceu muito rápido. A gente se conheceu há pouquíssimo tempo e começou da forma mais improvável possível: jogando Roblox e fazendo brincadeira.</p>
-            <p>Só que em algum momento deixou de parecer uma conversa qualquer. Eu comecei a me apegar. Comecei a querer falar com você mais vezes, ficar mais tempo junto e conhecer cada detalhe seu.</p>
-            <p>Eu amo o quanto você é divertida. Amo sua personalidade, seu jeito de falar, seu sotaque do Pará e essa sua forma de ser bonita sem precisar tentar. E quanto mais eu conheço você, mais eu sinto que as outras pessoas simplesmente não têm o mesmo sal.</p>
-            <p>Quando você me contou um pouco da sua história, eu senti ainda mais vontade de cuidar de você. Não de uma forma pesada, nem de querer mandar na sua vida. Eu só quero ser alguém que te faça bem, que esteja do seu lado, que te trate com carinho e que faça você se sentir querida de verdade.</p>
-            <p>Eu quero você perto de mim. Quero continuar acordando com vontade de mandar mensagem, continuar rindo das nossas besteiras, continuar te chamando de Maria Pirulita e descobrir tudo aquilo que ainda não tive tempo de conhecer.</p>
-            <p>Talvez seja loucura se apaixonar assim tão rápido. Mas, se for, eu aceito. Porque nesses poucos dias você conseguiu mexer comigo de um jeito que muita gente não conseguiu em muito mais tempo.</p>
-            <p>Então é isso: eu sou só um louco apaixonado, tentando transformar em um site uma coisa que eu ainda nem sei explicar direito.</p>
+      <section class="chapter letter-chapter reveal-on-scroll" aria-labelledby="letterTitle">
+        <div class="letter-paper">
+          <div class="letter-topline">
+            <p class="kicker">pra você, Maria Pirulita</p>
+            <span id="daysLabel">desde o nosso primeiro dia</span>
+          </div>
+          <h2 id="letterTitle">Eu ainda nem sei explicar direito.<br><em>Mas eu sei que é você.</em></h2>
+          <div class="letter-columns">
+            <div>
+              <p>Bia, eu sei que tudo isso aconteceu muito rápido. A gente se conheceu da forma mais improvável possível: jogando Roblox e fazendo brincadeira.</p>
+              <p>Só que, em algum momento, deixou de parecer uma conversa qualquer. Eu comecei a me apegar, a querer falar mais vezes e a conhecer cada detalhe seu.</p>
+              <p>Eu amo o quanto você é divertida. Amo sua personalidade, seu jeito de falar e essa sua forma de ser bonita sem precisar tentar.</p>
+            </div>
+            <div>
+              <p>Quando você me contou um pouco da sua história, eu senti ainda mais vontade de ficar. Quero ser alguém que te faça bem e que te trate com o carinho que você merece.</p>
+              <p>Talvez seja loucura se apaixonar tão rápido. Mas, se for, eu aceito. Você mexeu comigo de um jeito que muita gente não conseguiu em muito mais tempo.</p>
+              <p>Então é isso: eu sou só um louco apaixonado, tentando transformar em um site uma coisa que o coração entendeu antes de mim.</p>
+            </div>
           </div>
           <p class="signature">— Matheus ♡</p>
         </div>
       </section>
 
-      <section class="section-block final-block">
-        <div class="final-heart">♡</div>
-        <h2>De uma partida no Roblox para alguém que eu já quero muito na minha vida.</h2>
-        <p>Matheus + Beatriz</p>
-        <p class="tiny">07.08.2026 • só o começo, Maria Pirulita</p>
-        <button class="secondary" id="replay">ler tudo de novo</button>
+      <section class="ending reveal-on-scroll" aria-labelledby="endingTitle">
+        <span class="ending-heart" aria-hidden="true">♡</span>
+        <p class="kicker">e isso ainda é só o começo</p>
+        <h2 id="endingTitle">De uma partida no Roblox para alguém que eu já quero muito na minha vida.</h2>
+        <p class="ending-names">Matheus + Beatriz</p>
+        <p class="ending-date">07.08.2026 • Maria Pirulita ♡</p>
+        <button class="replay-button" id="replay" type="button">ler outra vez</button>
       </section>
-    </section>
+    </div>
   </main>
-  <script src="script.js"></script>
+
+  <button class="music-status" id="musicControl" type="button" aria-label="Pausar nossa música" aria-pressed="true" hidden>
+    <span class="music-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="music-copy"><strong>Amor</strong><small>Emmanuel Cortes</small></span>
+    <span class="music-action" aria-hidden="true">Ⅱ</span>
+  </button>
+
+  <div class="audio-engine" aria-hidden="true">
+    <div id="youtubePlayer"></div>
+    <iframe id="fallbackPlayer" title="" allow="autoplay; encrypted-media" tabindex="-1"></iframe>
+  </div>
+
+  <noscript>
+    <p class="noscript-message">Ative o JavaScript para abrir esta surpresa.</p>
+  </noscript>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
